@@ -29,3 +29,6 @@ def register_view(request):
         "form": form,
     }
     return render(request, 'register.html', context)
+
+def profile_view(request):
+    return render(request, 'profile.html')
