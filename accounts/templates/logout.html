@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+<!-- page name here (SEO) -->
+{% block title %}Log out | FamilyHub{% endblock %}
+
+
+{% block content %}
+
+<h3>You have successfully logged out.</h3>
+<p class="text-muted">
+    <a href="{% url 'login' %}">
+        Log in again
+    </a>
+</p>
+
+{% endblock %}

@@ -1,0 +1,38 @@
+
+{% extends 'base.html' %}
+
+<!-- Allows crispy filters on forms for bootstrap 4 css -->
+{% load crispy_forms_tags %}
+
+<!-- page name here (SEO) -->
+{% block title %}Register | Familyhub{% endblock %}
+
+{% block content %}
+
+<!-- Alert messages from form to provide feedback to user -->
+<div class="container-fluid p-0">
+    <div class="row no-gutters">
+        <div class="col-12">
+            {% if messages %}
+            {% for message in messages %}
+
+            <div class="alert alert-{{ message.tags }} text-center">
+                {{ message }}
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<form method="POST">
+    {% csrf_token %}
+    <fieldset class="form-group">
+        {{ form|crispy }}
+    </fieldset>
+    <div class="form-group">
+        <button class="btn" type="submit">Sign up</button>
+    </div>
+</form>
+
+{% endblock %}
