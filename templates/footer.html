@@ -1,0 +1,125 @@
+<!-- Footer -->
+<footer class="page-footer font-small near-moon-gradient">
+
+    <!-- Footer Links -->
+    <div class="container text-center text-md-left">
+
+        <!-- Grid row -->
+        <div class="row">
+
+            <!-- Grid column -->
+            <div class="col-md-4 mx-auto">
+
+                <!-- Links -->
+                <h5 class="font-weight-bold mt-3 mb-4">Events & Activities</h5>
+
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="#!">Events</a>
+                    </li>
+                    <li>
+                        <a href="#!">Educational</a>
+                    </li>
+                    <li>
+                        <a href="#!">Clubs</a>
+                    </li>
+                    <li>
+                        <a href="#!">Children's parties</a>
+                    </li>
+                </ul>
+
+            </div>
+            <!-- Grid column -->
+
+            <hr class="clearfix w-100 d-md-none">
+
+            <!-- Grid column -->
+            <div class="col-md-4 mx-auto">
+
+                <!-- Links -->
+                <h5 class="font-weight-bold mt-3 mb-4">General</h5>
+
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="#!">About</a>
+                    </li>
+                    <li>
+                        <a href="#!">Terms & Conditions</a>
+                    </li>
+                    <li>
+                        <a href="#!">Privacy</a>
+                    </li>
+                    {% if user.is_anonymous %}
+                    <!-- Hide if user already logged in -->
+                    <li>
+                        <a href="#!">For Companies</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'login' %}">Company login</a>
+                    </li>
+                    {% else %}
+                    <li>
+                        <a href="{% url 'logout' %}">Log out</a>
+                    </li>
+                    {% endif %}
+                </ul>
+
+            </div>
+            <!-- Grid column -->
+
+            <hr class="clearfix w-100 d-md-none">
+
+            <!-- Grid column -->
+            <div class="col-md-4 mx-auto">
+
+                <!-- Links -->
+                <h5 class="font-weight-bold mt-3 mb-4">Connect</h5>
+
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="#!">Contact</a>
+                    </li>
+                    <li>
+                        <a href="#!">test@email.com</a>
+                    </li>
+                </ul>
+
+                <h5 class="font-weight-bold mt-3 mb-4">Newsletter</h5>
+
+            </div>
+            <!-- Grid column -->
+
+            <hr class="clearfix w-100 d-md-none">
+
+            <!-- Grid column -->
+            <div class="col-md-12 py-5">
+                <div class="mb-5 flex-center">
+
+                    <!-- Facebook -->
+                    <a class="fb-ic">
+                        <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                    </a>
+                    <!-- Twitter -->
+                    <a class="tw-ic">
+                        <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                    </a>
+                    <!--Instagram-->
+                    <a class="ins-ic">
+                        <i class="fab fa-instagram fa-lg white-text fa-2x"> </i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+        <!-- Grid row -->
+
+
+    </div>
+    <!-- Footer Links -->
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+        <a href="{% url 'home' %}"> FamilyHub</a>
+    </div>
+    <!-- Copyright -->
+
+</footer>
