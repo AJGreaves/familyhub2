@@ -90,6 +90,12 @@ larger screen sizes in media queries
     width: 155px;
 }
 
+/* Overrides default underline colour for search bar in navigation */
+.navbar.navbar-light form .md-form input:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 1px 0 0 var(--accent-color)!important; border-bottom: 1px solid var(--accent-color)!important;
+}
+
 /* 
 Custom underline for nav items, code adapted 
 from, https://codepen.io/rm/pen/ldhon works with custom
