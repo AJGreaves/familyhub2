@@ -75,7 +75,9 @@ nav a:hover {
 
 /* 
 Custom underline for nav items, code adapted 
-from: https://codepen.io/rm/pen/ldhon 
+from, https://codepen.io/rm/pen/ldhon works with custom
+javascript setNavUnderline() function and jquery mouseenter
+and mouseleave events in scripts.js
 */
 #underline-nav-container {
     width: 600px;
@@ -97,34 +99,16 @@ from: https://codepen.io/rm/pen/ldhon
 }
 
 #underline-nav-container hr {
-    height: .25rem;
+    height: 1px;
     width: 20%;
     margin: 0;
     background: var(--accent-color);
     border: none;
     -webkit-transition: .3s ease-in-out;
     transition: .3s ease-in-out;
+    display: none;
 }
 
-#underline-nav-container .nav-link-one:hover ~ hr {
-    margin-left: 0%;
-}
-
-#underline-nav-container .nav-link-two:hover ~ hr {
-    margin-left: 20%;
-}
-
-#underline-nav-container .nav-link-three:hover ~ hr {
-    margin-left: 40%;
-}
-
-#underline-nav-container .nav-link-four:hover ~ hr {
-    margin-left: 60%;
-}
-
-#underline-nav-container .nav-link-five:hover ~ hr {
-    margin-left: 80%;
-}
 
 /* Stops profile dropdown menu from expanding width of screen */
 .profile-dropdown-menu {
