@@ -1,0 +1,31 @@
+/*
+FamilyHub brand colors chosen for their reference to outdoors, kids, family and fun,
+and because they complement themselves nicely in good design
+
+white #ffffff
+green #43a047
+dark-green #1b5e20
+cyan #00bcd4
+dark-cyan #00838f
+charcoal #212121
+orange #f4511e
+
+*/
+
+:root {
+    --main-bg-color: white;
+    --main-text-color: #212121;
+    --accent-color: #f4511e;
+    --main-color: #43a047;
+    --main-color-dk: #1b5e20;
+    --secondary-color: #00bcd4;
+    --secondary-color-dk: #00838f;
+}
+
+/* 
+    Pushes footer down to the bottom of the page
+    Adjust px value if footer content height changes
+*/
+.content {
+    min-height: calc(100vh - 395px);
+}
