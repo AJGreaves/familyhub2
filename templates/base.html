@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,31 +17,35 @@
     <!-- Material Design Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.14.1/css/mdb.min.css" rel="stylesheet">
 
-    <!-- <link rel="stylesheet" href="#"> -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <title>{% block title %}{% endblock %}</title>
 </head>
 
 <body>
+    <div class="content">
 
-    {% include 'nav.html' %}
-    <!-- Alert messages from form to provide feedback to user -->
-    <div class="container-fluid p-0">
-        <div class="row no-gutters">
-            <div class="col-12">
-                {% if messages %}
-                {% for message in messages %}
+        {% include 'nav.html' %}
+        <!-- Alert messages from form to provide feedback to user -->
+        <div class="container-fluid p-0">
+            <div class="row no-gutters">
+                <div class="col-12">
+                    {% if messages %}
+                    {% for message in messages %}
 
-                <div class="alert alert-{{ message.tags }} text-center">
-                    {{ message }}
+                    <div class="alert alert-{{ message.tags }} text-center">
+                        {{ message }}
+                    </div>
+                    {% endfor %}
+                    {% endif %}
                 </div>
-                {% endfor %}
-                {% endif %}
             </div>
         </div>
-    </div>
 
-    {% block content %}
-    {% endblock %}
+        {% block content %}
+        {% endblock %}
+        
+    </div>
+    <!-- end content div, pushes footer to bottom of page -->
 
     {% include 'footer.html' %}
 
@@ -52,7 +58,8 @@
     <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.14.1/js/mdb.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.14.1/js/mdb.min.js">
+    </script>
 </body>
 
 </html>
