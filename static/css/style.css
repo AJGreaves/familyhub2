@@ -58,7 +58,11 @@ h6 {
 /* NAVIGATION */
 #custom-navbar {
     padding: 0 1rem;
-    height: 63px;
+}
+
+.navbar-brand {
+    color: var(--main-color-dk);
+    font-family: var(--heading);
 }
 
 .custom-nav-item {
@@ -73,6 +77,11 @@ nav a:hover {
     color: var(--accent-color);
 }
 
+#fb-logo-text {
+    display: inline-block;
+    padding-top: 1.2rem;
+}
+
 /* 
 Custom underline for nav items, code adapted 
 from, https://codepen.io/rm/pen/ldhon works with custom
@@ -80,7 +89,7 @@ javascript setNavUnderline() function and jquery mouseenter
 and mouseleave events in scripts.js
 */
 #underline-nav-container {
-    width: 600px;
+    width: 550px;
     box-sizing: border-box;
     text-align: center;
     padding-top: 1.2rem;
@@ -92,7 +101,8 @@ and mouseleave events in scripts.js
 }
 
 #underline-nav-container a {
-    display: inline-block;
+    display: block;
+    text-align: left;
     width: 19.5%;
     padding: .5rem 0;
     margin: 0;
@@ -158,4 +168,14 @@ footer {
 
 .dropdown-toggle::after {
     display: none;
+}
+
+/* MEDIA QUERIES */
+
+/* medium screens and up */
+@media (min-width: 992px) {
+    #underline-nav-container a {
+        display: inline-block;
+        text-align: center;
+    }
 }
