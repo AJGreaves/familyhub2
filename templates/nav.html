@@ -1,6 +1,6 @@
 <!-- Navigation -->
 
-<nav class="navbar navbar-expand-lg">
+<nav id="custom-navbar" class="navbar navbar-expand-lg">
     <a class="navbar-brand" href="{% url 'home' %}">Home logo</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,43 +9,45 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="{% url 'home' %}"> Home <span
-                        class="sr-only">(current)</span></a>
+            <li class="custom-nav-item nav-item active">
+                <a class="nav-link" href="{% url 'home' %}"> Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
+            <li class="custom-nav-item nav-item">
                 <a class="nav-link" href="#"> Events </a>
             </li>
-            <li class="nav-item">
+            <li class="custom-nav-item nav-item">
                 <a class="nav-link" href="#"> Educational </a>
             </li>
-            <li class="nav-item">
+            <li class="custom-nav-item nav-item">
                 <a class="nav-link" href="#"> Clubs </a>
             </li>
-            <li class="nav-item">
+            <li class="custom-nav-item nav-item">
                 <a class="nav-link" href="#"> Children's parties </a>
             </li>
+
+            <form class="form-inline">
+                <div class="md-form my-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                </div>
+            </form>
+
             {% if user.is_authenticated %}
             <!-- Dropdown menu for logged in business links-->
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false"><i class="far fa-user-circle"></i> Profile </a>
-                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                    aria-haspopup="true" aria-expanded="false">
+                    <div id="profile-btn">
+                        <i class="far fa-user"></i>
+                    </div>
+                </a>
+                <div class="profile-dropdown-menu dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="#">Dashboard</a>
                     <a class="dropdown-item" href="{% url 'profile' %}">Profile</a>
                     <a class="dropdown-item" href="{% url 'logout' %}">Log out</a>
                 </div>
             </li>
             {% endif %}
-            <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fas fa-search"></i></a>
-            </li>
 
         </ul>
-        <form class="form-inline">
-            <div class="md-form my-0">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-            </div>
-        </form>
     </div>
 </nav>

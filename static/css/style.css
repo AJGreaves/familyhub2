@@ -10,9 +10,19 @@ dark-cyan #00838f
 charcoal #212121
 orange #f4511e
 
+FamilyHub fonts chosen for their clean, easily readable and simple style.
+font-family: 'Quicksand', sans-serif;
+font-family: 'Lato', sans-serif;
+
 */
 
+/* VARIABLES */
+
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Quicksand:wght@300;400&display=swap');
+
 :root {
+    
+    /* colors */
     --main-bg-color: white;
     --main-text-color: #212121;
     --accent-color: #f4511e;
@@ -20,7 +30,51 @@ orange #f4511e
     --main-color-dk: #1b5e20;
     --secondary-color: #00bcd4;
     --secondary-color-dk: #00838f;
+
+    /* fonts */
+    --heading: 'Quicksand', sans-serif;
+    --main-text: 'Lato', sans-serif;
+
+    /* hover effects */
+    --btn-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+    --btn-shadow-hvr: 0 6px 8px 0 rgba(0,0,0,0.16), 0 5px 12px 0 rgba(0,0,0,0.12);
 }
+
+/* STRUCTURAL ELEMENTS */
+body {
+    font-family: var(--main-text);
+}
+
+/* FONTS */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading);
+}
+
+/* NAVIGATION */
+#custom-navbar {
+    padding: 0 1rem;
+    height: 63px;
+}
+
+.custom-nav-item {
+    padding-top: 0.76rem;
+}
+
+nav a {
+    color: var(--main-text-color);
+}
+
+nav a:hover {
+    color: var(--accent-color);
+}
+
+/* Stops profile dropdown menu from expanding width of screen */
+.profile-dropdown-menu {
+    right: 0;
+    left: auto;
+}
+
+/* FOOTER */
 
 /* 
     Pushes footer down to the bottom of the page
@@ -28,4 +82,38 @@ orange #f4511e
 */
 .content {
     min-height: calc(100vh - 395px);
+}
+
+footer {
+    background-color: var(--main-color-dk);
+}
+
+/* BUTTONS & ICONS */
+
+#profile-btn {
+    vertical-align: middle;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 47px;
+    height: 47px;
+    box-shadow: var(--btn-shadow);
+    text-align: center;
+    background-color: var(--secondary-color);
+    color: white;
+    -webkit-transition: 0.2 all ease-in-out;
+    -webkit-transition: 0.2s all ease-in-out;
+    transition: 0.2s all ease-in-out;
+}
+
+#profile-btn:hover {
+    box-shadow: var(--btn-shadow-hvr);
+}
+
+#profile-btn i {
+    font-size: 1.25rem;
+    line-height: 47px;
+}
+
+.dropdown-toggle::after {
+    display: none;
 }
