@@ -83,6 +83,14 @@ nav a:hover {
 }
 
 /* 
+small size needed for iphone5/SE, widths for 
+larger screen sizes in media queries 
+*/
+#search-bar-mobile {
+    width: 155px;
+}
+
+/* 
 Custom underline for nav items, code adapted 
 from, https://codepen.io/rm/pen/ldhon works with custom
 javascript setNavUnderline() function and jquery mouseenter
@@ -92,7 +100,6 @@ and mouseleave events in scripts.js
     width: 550px;
     box-sizing: border-box;
     text-align: center;
-    padding-top: 1.2rem;
 }
 
 #underline-nav-container li {
@@ -172,10 +179,32 @@ footer {
 
 /* MEDIA QUERIES */
 
+/* small screens and up */
+@media (min-width: 576px) {
+    #search-bar-mobile {
+        width: 270px;
+    }
+}
+
 /* medium screens and up */
+@media (min-width: 768px) {
+    #search-bar-mobile {
+        width: 400px;
+    }
+}
+
+/* large screens and up */
 @media (min-width: 992px) {
     #underline-nav-container a {
         display: inline-block;
         text-align: center;
+    }
+
+    #underline-nav-container {
+        padding-top: 0.3rem;
+    }
+
+    #search-bar-mobile {
+        width: auto;
     }
 }
