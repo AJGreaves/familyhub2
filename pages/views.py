@@ -7,4 +7,5 @@ from django.shortcuts import render
 # Create your views here.
 def home_view(request):
     """ renders home page """
-    return render(request, 'index.html')
+    context = { 'page' : 'home' }
+    return render(request, 'index.html', context)
