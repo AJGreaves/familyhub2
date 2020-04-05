@@ -29,22 +29,24 @@
     <div class="content">
 
         {% include 'nav.html' %}
+        {% if messages %}
         <!-- Alert messages from form to provide feedback to user -->
         <div class="container-fluid p-0">
             <div class="row no-gutters">
                 <div class="col-12">
-                    {% if messages %}
+                    
                     {% for message in messages %}
 
                     <div class="alert alert-{{ message.tags }} text-center">
                         {{ message }}
                     </div>
                     {% endfor %}
-                    {% endif %}
+                    
                 </div>
             </div>
         </div>
-
+        {% endif %}
+        
         {% block content %}
         {% endblock %}
         

@@ -9,5 +9,9 @@ Application based on a previous [student project I built](https://github.com/AJG
 - [MDBootstrap](https://mdbootstrap.com/)
 - [Font Awesome](https://fontawesome.com/)
 
+## Media
+### images
+- Hero image home page: https://www.pexels.com/photo/mother-and-daughter-on-grass-1683975/
+
 ## Credits
 - Animated underline for navbar: https://codepen.io/rm/pen/ldhon

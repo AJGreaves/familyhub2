@@ -28,6 +28,7 @@ font-family: 'Lato', sans-serif;
     --accent-color: #f4511e;
     --accent-color-transparent: #f4501e7e;
     --main-color: #43a047;
+    --main-color-transparent: #43a04881;
     --main-color-dk: #1b5e20;
     --secondary-color: #00bcd4;
     --secondary-color-dk: #00838f;
@@ -46,6 +47,20 @@ body {
     font-family: var(--main-text);
 }
 
+.container,
+.container-fluid,
+.row {
+    padding: 0;
+}
+/* 
+.vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+} */
+
 /* FONTS */
 h1,
 h2,
@@ -61,10 +76,10 @@ h6 {
     background-color: var(--secondary-color);
 }
 
-
-/* NAVIGATION */
+/* NAVIGATION & SEARCH */
 #custom-navbar {
     padding: 0 1rem;
+    z-index: 1;
 }
 
 .navbar-brand {
@@ -89,6 +104,11 @@ nav a:hover {
     padding-top: 1.2rem;
 }
 
+.search-form-container {
+    width: 600px;
+    margin: 0 auto;
+}
+
 /* 
 small size needed for iphone5/SE, widths for 
 larger screen sizes in media queries 
@@ -100,7 +120,8 @@ larger screen sizes in media queries
 /* Overrides default underline colour for search bar in navigation */
 .navbar.navbar-light form .md-form input:focus {
     border-color: var(--accent-color);
-    box-shadow: 0 1px 0 0 var(--accent-color)!important; border-bottom: 1px solid var(--accent-color)!important;
+    box-shadow: 0 1px 0 0 var(--accent-color) !important;
+    border-bottom: 1px solid var(--accent-color) !important;
 }
 
 /* 
@@ -214,14 +235,41 @@ footer {
     display: none;
 }
 
+/* HERO IMAGES */
+
+#hero-background-wrapper {
+    height: 50vh;
+}
+
+#hero-background {
+    background-image: url('../img/familyhub-hero.jpg');
+    background-size: cover;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center 35%;
+}
+
+#hero-overlay {
+    height: 100%;
+    background-color: var(--main-color-transparent);
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+            justify-content: center;
+
+}
+
 /* CARDS */
 
 .card {
     -webkit-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
 }
+
 .card:hover {
-    box-shadow: 0 5px 11px 0 rgba(0,0,0,0.18), 0 4px 15px 0 rgba(0,0,0,0.15);
+    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
 }
 
 .card-footer-town {
