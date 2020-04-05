@@ -47,11 +47,6 @@ body {
     font-family: var(--main-text);
 }
 
-.container,
-.container-fluid,
-.row {
-    padding: 0;
-}
 /* 
 .vertical-center {
     margin: 0;
