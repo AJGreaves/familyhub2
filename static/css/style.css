@@ -335,6 +335,15 @@ calc to adjust for height of navbar
     max-width: 350px;
 }
 
+/* OTHER STYLES */
+
+#login-form-wrapper hr {
+    height: 1px;
+    width: 33%;
+    margin: 0;
+    background: var(--accent-color);
+}
+
 /* MEDIA QUERIES */
 
 /* small screens and up */
