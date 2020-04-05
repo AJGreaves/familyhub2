@@ -104,9 +104,18 @@ nav a:hover {
     padding-top: 1.2rem;
 }
 
+/*
+Search bar and heading smaller size on mobile,
+see media queries for size on larger screens.
+*/
+
 .search-form-container {
-    width: 600px;
+    width: 300px;
     margin: 0 auto;
+}
+
+#home-search-heading {
+    font-size: 1.5rem;
 }
 
 /* 
@@ -307,12 +316,21 @@ footer {
     #search-bar-mobile {
         width: 270px;
     }
+    .search-form-container {
+        width: 450px;
+    }
+    #home-search-heading {
+        font-size: 2rem;
+    }
 }
 
 /* medium screens and up */
 @media (min-width: 768px) {
     #search-bar-mobile {
         width: 400px;
+    }
+    .search-form-container {
+        width: 600px;
     }
 }
 

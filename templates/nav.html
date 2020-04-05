@@ -4,22 +4,29 @@
 <nav id="custom-navbar" class="navbar navbar-expand-lg navbar-light">
     <a class="navbar-brand" href="{% url 'home' %}">
         <img src="{% static 'img/logo_transparent-50px.png' %}" alt="FamilyHub logo">
-        <p id="fb-logo-text" class="d-none d-sm-inline-block">FamilyHub</p> 
+        <p id="fb-logo-text" class="d-none d-sm-inline-block">FamilyHub</p>
     </a>
+
+
+    {% if page != 'home' %}
+    <!-- Hide navigation search bar when on home page -->
     <ul class="navbar-nav mx-auto d-lg-none">
         <form class="form-inline ml-auto">
             <div class="md-form my-0">
-                <input id="search-bar-mobile" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                <input id="search-bar-mobile" class="form-control mr-sm-2" type="text" placeholder="Search"
+                    aria-label="Search">
             </div>
         </form>
     </ul>
+    {% endif %}
+
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <div id="underline-nav-container">
             <div>
@@ -40,11 +47,16 @@
         </div>
 
         <ul class="navbar-nav ml-auto d-none d-lg-flex">
+
+            {% if page != 'home' %}
+            <!-- Hide navigation search bar when on home page -->
             <form class="form-inline ml-auto">
                 <div class="md-form my-0">
                     <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
                 </div>
             </form>
+            {% endif %}
+
             {% if user.is_authenticated %}
             <!-- Dropdown menu for logged in business links-->
             <li class="nav-item dropdown">
