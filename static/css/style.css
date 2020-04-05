@@ -55,6 +55,12 @@ h6 {
     font-family: var(--heading);
 }
 
+/* COLORS */
+.bg-secondary-color {
+    background-color: var(--secondary-color);
+}
+
+
 /* NAVIGATION */
 #custom-navbar {
     padding: 0 1rem;
@@ -132,8 +138,7 @@ and mouseleave events in scripts.js
     display: none;
 }
 
-
-/* Stops profile dropdown menu from expanding width of screen */
+/* Stops profile dropdown menu from overflowing width of screen */
 .profile-dropdown-menu {
     right: 0;
     left: auto;
@@ -155,23 +160,48 @@ footer {
 
 /* BUTTONS & ICONS */
 
-#profile-btn {
+.btn-floating {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    padding: 0;
+    margin: 10px;
+    overflow: hidden;
     vertical-align: middle;
     cursor: pointer;
     border-radius: 50%;
+    box-shadow: var(--btn-shadow);
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
     width: 47px;
     height: 47px;
-    box-shadow: var(--btn-shadow);
+}
+
+.btn-floating:hover {
+    box-shadow: var(--btn-shadow-hvr);
+}
+
+.card .btn-action {
+    margin-top: -1.44rem;
+    margin-bottom: -1.44rem;
+}
+
+.btn-floating i {
+    display: inline-block;
+    width: inherit;
+    color: #fff;
+    text-align: center;
+}
+
+.btn-floating i {
+    font-size: 1.25rem;
+    line-height: 47px;
+}
+
+#profile-btn {
     text-align: center;
     background-color: var(--secondary-color);
     color: white;
-    -webkit-transition: 0.2 all ease-in-out;
-    -webkit-transition: 0.2s all ease-in-out;
-    transition: 0.2s all ease-in-out;
-}
-
-#profile-btn:hover {
-    box-shadow: var(--btn-shadow-hvr);
 }
 
 #profile-btn i {
@@ -181,6 +211,21 @@ footer {
 
 .dropdown-toggle::after {
     display: none;
+}
+
+/* CARDS */
+
+.card {
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+.card:hover {
+    box-shadow: 0 5px 11px 0 rgba(0,0,0,0.18), 0 4px 15px 0 rgba(0,0,0,0.15);
+}
+
+.card-footer-town {
+    text-align: center;
+    margin: 0;
 }
 
 /* MEDIA QUERIES */
