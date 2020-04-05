@@ -47,15 +47,6 @@ body {
     font-family: var(--main-text);
 }
 
-/* 
-.vertical-center {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
-} */
-
 /* FONTS */
 h1,
 h2,
@@ -212,6 +203,16 @@ footer {
     margin-bottom: -1.44rem;
 }
 
+.btn-rounded {
+    border-radius: 10em;
+}
+
+.btn-outline-main {
+    color: var(--main-color);
+    background-color: white;
+    border: 2px solid var(--main-color);
+}
+
 .btn-floating i {
     display: inline-block;
     width: inherit;
@@ -241,15 +242,18 @@ footer {
 
 /* HERO IMAGES */
 
+.hero-img {
+    background-size: cover;
+    height: 100%;
+    background-repeat: no-repeat;
+}
+
 #hero-background-wrapper {
     height: 50vh;
 }
 
 #hero-background {
     background-image: url('../img/familyhub-hero.jpg');
-    background-size: cover;
-    height: 100%;
-    background-repeat: no-repeat;
     background-position: center 35%;
 }
 
@@ -263,6 +267,23 @@ footer {
     -webkit-box-pack: center;
             justify-content: center;
 
+}
+
+/* 
+calc to adjust for height of navbar
+*/
+#login-pg-img-wrapper {
+    min-height: calc(100vh - 60px)
+}
+
+#login-pg-bg-img {
+    background-image: url('../img/login-hero.jpg');
+    background-position: center 80%;
+    min-height: calc(100vh - 60px)
+}
+
+.full-height-img-overlay {
+    min-height: calc(100vh - 60px)
 }
 
 /* CARDS */
@@ -304,6 +325,16 @@ footer {
     margin-right: 10px
 }
 
+#login-form-wrapper {
+    padding: 1.25rem;
+    background-color: rgba(255, 255, 255, 0.7);
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: .25rem;
+    width: 80%;
+    max-width: 350px;
+}
+
 /* MEDIA QUERIES */
 
 /* small screens and up */
@@ -342,5 +373,10 @@ footer {
 
     #search-bar-mobile {
         width: auto;
+    }
+
+    /* pushes form to left on large screens */
+    #login-form-wrapper {
+        margin-right: 50%;
     }
 }

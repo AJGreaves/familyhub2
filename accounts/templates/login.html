@@ -7,19 +7,27 @@
 {% block title %}Log In | FamilyHub{% endblock %}
 
 {% block content %}
-<h4>Sign In</h4>
-<p>You must be signed in to view your cart.</p>
-<p class="text-muted">Need an account? <a href="#">Register here.</a></p>
 
-<form method="POST">
-    {% csrf_token %}
-    <fieldset class="form-group">
-        {{ form|crispy }}
-    </fieldset>
-    <div class="form-group">
-        <button class="btn btn-pink btn-cta m-0" type="submit">Submit</button>
+<div id="login-pg-img-wrapper">
+    <div id="login-pg-bg-img" class="hero-img">
+        <div id="hero-overlay" class="full-height-img-overlay">
+            <div id="login-form-wrapper" class="card">
+                <h4>Sign In</h4>
+                <p class="muted-white">Want an account? <a href="#">Register here.</a></p>
+                <form method="POST">
+                    {% csrf_token %}
+                    <fieldset class="form-group">
+                        {{ form|crispy }}
+                    </fieldset>
+                    <div class="form-group text-center">
+                        <button class="btn btn-outline-main btn-rounded waves-effect" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-</form>
+</div>
+
 
 
 
