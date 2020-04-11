@@ -32,3 +32,6 @@ def register_view(request):
 
 def profile_view(request):
     return render(request, 'profile.html')
+
+def pitch_view(request):
+    return render(request, 'pitch.html')

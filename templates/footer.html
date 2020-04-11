@@ -52,10 +52,10 @@
                     {% if user.is_anonymous %}
                     <!-- Hide if user already logged in -->
                     <li>
-                        <a href="#!">For Companies</a>
+                        <a href="{% url 'pitch' %}">For Businesses</a>
                     </li>
                     <li>
-                        <a href="{% url 'login' %}">Company login</a>
+                        <a href="{% url 'login' %}">Business login</a>
                     </li>
                     {% else %}
                     <li>

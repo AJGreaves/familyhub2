@@ -168,7 +168,7 @@ and mouseleave events in scripts.js
     Adjust px value if footer content height changes
 */
 .content {
-    min-height: calc(100vh - 395px);
+    min-height: calc(100vh - 410px);
 }
 
 footer {
@@ -288,15 +288,6 @@ calc to adjust for height of navbar
 
 /* CARDS */
 
-.card {
-    -webkit-transition: all 0.2s ease-in-out;
-    transition: all 0.2s ease-in-out;
-}
-
-.card:hover {
-    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
-}
-
 .card-footer-town {
     margin: 0 0 0 .5rem;
 }
@@ -340,7 +331,7 @@ calc to adjust for height of navbar
 #login-form-wrapper hr {
     height: 1px;
     width: 33%;
-    margin: 0;
+    margin-top: 0;
     background: var(--accent-color);
 }
 
