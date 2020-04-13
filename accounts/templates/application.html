@@ -4,16 +4,56 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<h1>Application page</h1>
 
-<form method="POST">
-    {% csrf_token %}
-    <fieldset class="form-group">
-        {{ form|crispy }}
-    </fieldset>
-    <div class="form-group">
-        <button class="btn" type="submit">Submit</button>
+<div id="application-pg-img-wrapper">
+    <div id="application-pg-bg-img" class="hero-img">
+        <div id="hero-overlay" class="full-height-img-overlay">
+            <div id="application-form-wrapper" class="card form-wrapper">
+                <h4>Apply to advertise with FamilyHub</h4>
+                <hr>
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="container-fluid p-0">
+                        <div class="row">
+                            <div class="col-12">
+                                {{ form.contact_name|as_crispy_field }}
+                            </div>
+                            <div class="col-12 col-md-6">
+                                {{ form.business_name|as_crispy_field }}
+                            </div>
+                            <div class="col-12 col-md-6">
+                                {{ form.kvk_num|as_crispy_field }}
+                            </div>
+                            <div class="col-12 col-md-6">
+                                {{ form.email|as_crispy_field }}
+                            </div>
+                            <div class="col-12 col-md-6">
+                                {{ form.phone|as_crispy_field }}
+                            </div>
+                            <div class="col-12">
+                                {{ form.message|as_crispy_field }}
+                            </div>
+                            <div class="col-12 mb-4">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+                                    <label class="form-check-label" for="exampleCheck1">
+                                        I confirm I have read the
+                                        <a href="#"
+                                            aria-label="Terms and conditions for application to advertise with FamilyHub">
+                                            terms and conditions
+                                        </a>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group text-center">
+                        <button class="btn btn-outline-main btn-rounded waves-effect" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-</form>
+</div>
 
 {% endblock %}

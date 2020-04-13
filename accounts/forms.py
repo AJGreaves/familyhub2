@@ -29,10 +29,15 @@ class ApplicationForm(forms.ModelForm):
     class Meta:
         model = Application
         labels = {
-            'contact_name': _('Contact Number'),
+            'contact_name': _('Contact Name'),
             'business_name': _('Business Name'),
             'kvk_num': _('KVK Number'),
             'phone': _('Phone Number'),
+        }
+        widgets = {
+            'message': forms.Textarea(
+                attrs={'cols': 40, 'rows': 7}
+            ),
         }
         fields = [
             'contact_name',
