@@ -1,7 +1,9 @@
 """ Views for pages in accounts app """
-
-from django.shortcuts import render, redirect
+from django.conf import settings
 from django.contrib import messages
+from django.core.mail import send_mail
+from django.shortcuts import render, redirect
+
 from .forms import UserRegisterForm, ApplicationForm
 
 # Create your views here.
@@ -21,6 +23,7 @@ def register_view(request):
             form.save()
             username = form.cleaned_data.get('username')
             messages.success(request, f'Your account has been created {username}. You can now log in.')
+
             return redirect('login')
     else:
         form = UserRegisterForm()
@@ -49,8 +52,22 @@ def application_view(request):
 
         if form.is_valid():
             form.save()
+
             contact_name = form.cleaned_data.get('contact_name')
             email = form.cleaned_data.get('email')
+            business_name = form.cleaned_data.get('business_name')
+            message = form.cleaned_data.get('message')
+            kvk_num = form.cleaned_data.get('kvk_num')
+            
+            # send_mail(subject, message, from_email, to_list, fail_silently=True)
+            subject = f'New application to FamilyHub from {business_name}'
+            full_message = f'Business Name: {business_name}\nKVK number: {kvk_num}\nContact Name: {contact_name}\nEmail: {email}\n\nMessage: {message}'
+            from_email = email
+            to_list = [settings.EMAIL_HOST_USER]
+
+            send_mail(subject, full_message, from_email, to_list, fail_silently=True)
+
+            # sends message to user on submitting form
             messages.success(
                 request, f'Thank you {contact_name}, your application has been submitted for review. You will receive a response within 2 working days to {email}.'
             )
