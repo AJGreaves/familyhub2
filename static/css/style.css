@@ -272,14 +272,23 @@ footer {
 /* 
 calc to adjust for height of navbar
 */
-#login-pg-img-wrapper {
+#login-pg-img-wrapper,
+#application-pg-img-wrapper {
     min-height: calc(100vh - 60px)
 }
 
 #login-pg-bg-img {
     background-image: url('../img/login-hero.jpg');
     background-position: center 80%;
-    min-height: calc(100vh - 60px)
+    min-height: calc(100vh - 60px);
+    background-attachment: fixed;
+}
+
+#application-pg-bg-img {
+    background-image: url('../img/tulip-garden.jpg');
+    background-position: center 80%;
+    min-height: calc(100vh - 60px);
+    background-attachment: fixed;
 }
 
 .full-height-img-overlay {
@@ -316,7 +325,8 @@ calc to adjust for height of navbar
     margin-right: 10px
 }
 
-#login-form-wrapper {
+.form-wrapper {
+    margin: 1rem;
     padding: 1.25rem;
     background-color: rgba(255, 255, 255, 0.7);
     background-clip: border-box;
@@ -326,9 +336,13 @@ calc to adjust for height of navbar
     max-width: 350px;
 }
 
+#application-form-wrapper {
+    max-width: 700px;
+}
+
 /* OTHER STYLES */
 
-#login-form-wrapper hr {
+.form-wrapper hr {
     height: 1px;
     width: 33%;
     margin-top: 0;
