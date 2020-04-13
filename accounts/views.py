@@ -59,7 +59,7 @@ def application_view(request):
             message = form.cleaned_data.get('message')
             kvk_num = form.cleaned_data.get('kvk_num')
             
-            # send_mail(subject, message, from_email, to_list, fail_silently=True)
+            # Sends email to manager when new business applies to advertise
             subject = f'New application to FamilyHub from {business_name}'
             full_message = f'Business Name: {business_name}\nKVK number: {kvk_num}\nContact Name: {contact_name}\nEmail: {email}\n\nMessage: {message}'
             from_email = email

@@ -18,10 +18,11 @@ class Application(models.Model):
     ] 
     contact_name = models.CharField(max_length=25)
     business_name = models.CharField(max_length=25)
-    kvk_num = models.CharField(max_length=20)
+    kvk_regex = RegexValidator(regex=r'^\+?1?\d{8}$', message="KVK number must be entered in the format: '12345678'. 8 digits long. Only registered businesses and foundations may advertise with FamilyHub")
+    kvk_num = models.CharField(validators=[kvk_regex], max_length=8, blank=True)
     email = models.EmailField()
-    phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
-    phone = models.CharField(validators=[phone_regex], max_length=17, blank=True) # validators should be a list
+    phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number must be entered in the format: '+123456789'. Up to 15 digits allowed.")
+    phone = models.CharField(validators=[phone_regex], max_length=17, blank=True)
     message = models.TextField()
     status = models.CharField(
         max_length=20,
