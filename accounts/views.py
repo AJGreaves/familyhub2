@@ -43,8 +43,22 @@ def application_view(request):
     """
     if request.user.is_authenticated:
         return redirect('home')
+
+    if request.method == "POST":
+        form = ApplicationForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            contact_name = form.cleaned_data.get('contact_name')
+            email = form.cleaned_data.get('email')
+            messages.success(
+                request, f'Thank you {contact_name},\nyour application has been submitted for review. You will receive a response within 2 working days to {email}.'
+            )
+            return redirect('home')
     
-    form = ApplicationForm()
+    else:
+        form = ApplicationForm()
+
     context = {
         'form': form
     }
