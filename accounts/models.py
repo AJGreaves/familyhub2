@@ -8,6 +8,14 @@ class Application(models.Model):
     Code for phone number and regex taken from
     https://stackoverflow.com/questions/19130942/whats-the-best-way-to-store-phone-number-in-django-models
     """
+    AWAITING = 'Awaiting response'
+    APPROVED = 'Approved'
+    DENIED = 'Denied'
+    STATUS_CHOICES = [
+        (AWAITING, 'Awaiting response'),
+        (APPROVED, 'Approved'),
+        (DENIED, 'Denied'),
+    ] 
     contact_name = models.CharField(max_length=25)
     business_name = models.CharField(max_length=25)
     kvk_num = models.CharField(max_length=20)
@@ -15,6 +23,14 @@ class Application(models.Model):
     phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
     phone = models.CharField(validators=[phone_regex], max_length=17, blank=True) # validators should be a list
     message = models.TextField()
+    status = models.CharField(
+        max_length=20,
+        choices=STATUS_CHOICES,
+        default=AWAITING,
+    )
+
+    def __str__(self):
+        return f'{self.business_name}: {self.status}'
 
 # Create your models here.
 class BusinessInfo(models.Model):

@@ -52,7 +52,7 @@ def application_view(request):
             contact_name = form.cleaned_data.get('contact_name')
             email = form.cleaned_data.get('email')
             messages.success(
-                request, f'Thank you {contact_name},\nyour application has been submitted for review. You will receive a response within 2 working days to {email}.'
+                request, f'Thank you {contact_name}, your application has been submitted for review. You will receive a response within 2 working days to {email}.'
             )
             return redirect('home')
     
