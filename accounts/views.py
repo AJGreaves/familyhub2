@@ -2,7 +2,7 @@
 
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .forms import UserRegisterForm
+from .forms import UserRegisterForm, ApplicationForm
 
 # Create your views here.
 def register_view(request):
@@ -35,3 +35,18 @@ def profile_view(request):
 
 def pitch_view(request):
     return render(request, 'pitch.html')
+
+def application_view(request):
+    """
+    View to handle applications for new businesses. Redirects logged in
+    users to home page. If not logged in, renders form to apply.
+    """
+    if request.user.is_authenticated:
+        return redirect('home')
+    
+    form = ApplicationForm()
+    context = {
+        'form': form
+    }
+
+    return render(request, 'application.html', context)

@@ -1,6 +1,20 @@
 from django.db import models
 from django.contrib.auth.models import User
-from phone_field import PhoneField
+from django.core.validators import RegexValidator
+
+class Application(models.Model):
+    """
+    Model to store applications to advertise with FamilyHub.
+    Code for phone number and regex taken from
+    https://stackoverflow.com/questions/19130942/whats-the-best-way-to-store-phone-number-in-django-models
+    """
+    contact_name = models.CharField(max_length=25)
+    business_name = models.CharField(max_length=25)
+    kvk_num = models.CharField(max_length=20)
+    email = models.EmailField()
+    phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
+    phone = models.CharField(validators=[phone_regex], max_length=17, blank=True) # validators should be a list
+    message = models.TextField()
 
 # Create your models here.
 class BusinessInfo(models.Model):
@@ -10,7 +24,8 @@ class BusinessInfo(models.Model):
     kvk_num = models.CharField(max_length=20)
     # logo = image
     website = models.SlugField(max_length=50)
-    phone = PhoneField(blank=True, help_text='Contact phone number')
+    phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
+    phone = models.CharField(validators=[phone_regex], max_length=17, blank=True) # validators should be a list
     street_name = models.CharField(max_length=50)
     street_num = models.CharField(max_length=10)
     postcode = models.CharField(max_length=10)

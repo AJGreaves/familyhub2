@@ -1,7 +1,8 @@
 from django import forms
+from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .models import BusinessInfo
+from .models import BusinessInfo, Application
 
 class UserRegisterForm(UserCreationForm):
     """ Form to register a new user to User table """
@@ -20,17 +21,30 @@ class UserUpdateForm(forms.ModelForm):
         model = User
         fields = ['username', 'email', 'first_name', 'last_name']
 
-class BusinessRegisterForm(forms.ModelForm):
-    """ 
-    Form to collect basic business information 
+class ApplicationForm(forms.ModelForm):
+    """
+    Form to collect basic business information
     from potential business customer
     """
     class Meta:
-        model = BusinessInfo
-        fields = ['business_name', 'kvk_num']
+        model = Application
+        labels = {
+            'contact_name': _('Contact Number'),
+            'business_name': _('Business Name'),
+            'kvk_num': _('KVK Number'),
+            'phone': _('Phone Number'),
+        }
+        fields = [
+            'contact_name',
+            'business_name',
+            'kvk_num',
+            'email',
+            'phone',
+            'message',
+        ]
 
 class BusinessProfileForm(forms.ModelForm):
-    """ 
+    """
     Form to add full business profile to database
     """
     class Meta:
