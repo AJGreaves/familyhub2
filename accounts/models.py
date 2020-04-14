@@ -5,7 +5,7 @@ from django.core.validators import RegexValidator
 class Application(models.Model):
     """
     Model to store applications to advertise with FamilyHub.
-    Code for phone number and regex taken from
+    Code for phone number/kvk number regex taken from
     https://stackoverflow.com/questions/19130942/whats-the-best-way-to-store-phone-number-in-django-models
     """
     AWAITING = 'Awaiting response'
